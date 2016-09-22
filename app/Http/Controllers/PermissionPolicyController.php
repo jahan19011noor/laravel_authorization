@@ -10,17 +10,25 @@ use App\Products;
 
 use Auth;
 
+use App\User;
+
+use App\Permission;
+
 class PermissionPolicyController extends Controller
 {
     public function showPermissionPolicy($id)
     {
-    	$product = Products::find($id);
+    // 	$product = Products::find($id);
 
-    	// Auth::loginUsingId(1);
-    	Auth::logout();
+    	Auth::loginUsingId($id);
+    	
+    	$user = User::find($id);
+    	$user_role = $user->role;
+    	
+    // 	Auth::logout();
 
     	// $this->authorize('show-product', $product);
     	
-    	return view('permissionpolicy', compact('product'));
+    	return view('permissionpolicy', compact('user_role'));
     }
 }

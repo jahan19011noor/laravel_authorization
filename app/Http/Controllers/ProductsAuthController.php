@@ -30,6 +30,6 @@ class ProductsAuthController extends Controller
 		// Auth::loginUsingId(1);
     	Auth::logout();
     	
-    	return view('policyproduct', compact('product'));
+    	return view('gateproduct', compact('product'));
     }
 }
